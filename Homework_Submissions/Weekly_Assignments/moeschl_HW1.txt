@@ -3,3 +3,6 @@ Jessi Moeschl
 Assignment 1
 
 For this week's streamflow, I averaged 10 data points between 1995 and 2022 for the to dates in question (9/4 and 9/11).  The I averaged these both again but with removing the upper end outliers as I felt it was safe to assume this year is a pretty dry year so there is a very small chance of high increases in flow.  I then picked a number slightly larger than this new average based on the overall average as a threshold.  I did assume an increase in flow though from 8/27/2023 as there is an upper level trough coming through Arizona in the coming days.
+
+### Grade: 
+3/3 Great job! I got your submisison.
