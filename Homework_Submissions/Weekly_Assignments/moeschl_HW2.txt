@@ -1,0 +1,5 @@
+Jessi Moeschl
+9/5/2023
+Assignment 2
+
+For this week, since my Python is not playing nicely after figuring out reinstalling Pandas and now not accepting my file, I did the assignment in the same manner as last week. I altered the method slightly by taking 12 flows on each date of interest between the years of 2005 and 2022 instead of just 10.  I also made note of current conditions this week such as yesterday, flow was in the triple digits.  After averaging the 12 points for 9/12, I deemed it not necessary to remove outliers.  For 9/19 though I did remove an outlier to compare that average to the overall average and slightly elevated the adjusted average.
