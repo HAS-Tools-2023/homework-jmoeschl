@@ -1,0 +1,49 @@
+Jessi Moeschl
+9/11/2023
+Assignment 3
+
+
+SO SORRY THIS IS CLUTTERED. I WAS VERY CONFUSED.
+
+***This week using the code, I struggled to get it read in properly and after troubling shooting that, fell into a problem that was solved by changing the skip from 30 to 31.  After that, the mean and standard deviation returned nan so I had to write two new print functions, "np.nanmean()" and "np.nanstd()".  
+
+
+MAX: 42,200
+MIN: 19.0
+Mean: 319.1
+Std: 1161
+
+
+1) Varaible "flow" is an integer as it is a singular value with a length of up to 5 consecutive digits.  "Year" is also an integer as it is one integer value representing a year and each year is comprised of 4 integers.  "Month" is a list as it contains the months in numerical format, 12 indexes (checked via "type(month)" and "len(month)").  "Day" is a list as well becasue it consists of 0 lead integers and it is has 8643 items but each item has 2 characters.
+
+2 & 3)  I am not sure how to do this using Python without it only printing all flows (I cannot get it to print only september flows but I tried) so I just looked at the data.Because of how much the Verde basin has changed and knowing 1993 was the only big flood year, I have been using data only from 2000 onwards to get the best representation of current possibilities with the 30 year drought conditions now since then.  Only including flows past 2020 though yield higher values generally with before 2010 only having a greater maximum in the time frame.  Through looking at the values and using Excel, the flow was hgiher than my predictions 61% and 75% of the time for 2010-2022.  For 2000-2007 flow was above my prediciton 62% of the years and 87% for the second week evaluated.
+
+
+4) I am also unsure how to do this one with Python so I looked at the data again.  The flow generally decrease by the second half of the month if there was higher than 100cfs flow throughout the first half.  In the months that the first part was dry, there were times of massive increase for a short period of time in the second half.
+
+
+
+
+Since I could not figure out how to get Python to be of use for this, from looking at the current conditions and assuming only rain this week, I projected slight increase to 90 cfs this upcoming week and then a decrease to 80 for the following week.
+
+
+
+
+
+
+The data I used (kind of an average of each week in question):
+
+
+2010	75	97		2000	75	75
+	150	130			100	85
+	105	85			200	100
+	500	160			150	100
+	175	150			50	700
+	95	110			93	89
+	75	150			170	90
+	100	85		2007	80	85
+	130	150				
+	50	75				
+	60	68				
+	70	150				
+2022	120	190				
