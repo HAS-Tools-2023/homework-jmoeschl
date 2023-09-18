@@ -1,0 +1,20 @@
+Jessi Moeschl 
+9/17/2023
+Homework 3
+
+1)  With current flows just about 100cfs, that was my guess for messing around with the code to see how many in the entire month were over or under that value.  Then when analyzing the first half of the month versus the second half, the mean and median quantiles shifted to the left and decreased.    I chose 85 and then decreasing slightly because of the test to see if flow decreases throughout September.  My worry though is that the storm system next weekend will reach northern Arizona and increase it so I kept both at 85 to account for that fluctuation.  My histograms also are not allowed to be pasted into a text file.  If that deducts points, I do have them ina  screenshot if I need to somehow submit that as well.
+
+
+2) Flow_data is a numpy array.  It consists of integer values for days, months, and years as well as integer value for the flow on that day.  In total is has 34,572 data points that are organized into an 8,643 row by 4 column array.  The output of np.ndim is 2 dimensions.
+
+
+3) With a standard prediction of 100cfs, the flow was over that in September 333 times since 2000 (48.5%).  With this constraint as a minimum, the average is 206 cfs.  If that were considered to be a maximum (seeing how many times flow was under 100cfs, the toal number of occurences would be 353 times (51.5%) with an average of 78cfs.  This indicates that 100cfs is a little bit too high for me.
+
+
+4) After including a segment to the criteria of "(flow_data[:,0] >= 2010)", the number of occurences over 100 cfs were still 204 times (53%) with an average of 176.6cfs.  Under 100 cfs, the occurences were 186 times (47%) with an average of 76cfs.  This average is lower but the number occurences over 100 are greater.  
+
+
+5) This was done by adding "(flow_data[:,2] < 15)" to the criteria line.  The first half of the month (< 15), the number of occurences over 100cfs were 172 times, 54% of flows in the first half.  For the second half of September (> 15), the number of occurences over 100cfs was 148 times, 48% of the second half of the month.  This indicates decreasing flows throughout the month of September.
+
+
+6)  The class exercises from this past week made sense to me.  I have zero clue how to implement them into anything but I felt really good going through the motions.  I had very little hiccups along the way.  Hence why I am lost on how to pertain it to the streamflow homeworks.  I understand how to get a value out of a small data set with defined rows and columns.  No matter what I do, VS yells at me for trying to pull a number out of the file.
