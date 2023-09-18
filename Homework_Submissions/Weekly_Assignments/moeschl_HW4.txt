@@ -2,6 +2,15 @@ Jessi Moeschl
 9/17/2023
 Homework 3
 
+##
+## Grade
+3/3 
+- Totally fine that tyou took the forecast into account qualitatively. We just arent doing that quantiatively yet. 
+- Looks like you have a lot less confusion this week than last. Great job!
+- Glad that you had success on the exercises.  
+- Please show me in class what you are meaning about VS code getting mad at you. 
+##
+
 1)  With current flows just about 100cfs, that was my guess for messing around with the code to see how many in the entire month were over or under that value.  Then when analyzing the first half of the month versus the second half, the mean and median quantiles shifted to the left and decreased.    I chose 85 and then decreasing slightly because of the test to see if flow decreases throughout September.  My worry though is that the storm system next weekend will reach northern Arizona and increase it so I kept both at 85 to account for that fluctuation.  My histograms also are not allowed to be pasted into a text file.  If that deducts points, I do have them ina  screenshot if I need to somehow submit that as well.
 
 
