@@ -30,15 +30,46 @@ flow_data = data[['year', 'month','day', 'flow']].to_numpy()
 del(data)
 
 
+#%% 
+#           MY FINAL TRY
+
+# PART 2
+flow_5yr=[]
+for skipper in flow_data[:,0]:
+        if flow_data[:,0] >= 2015 & flow_data[:,0] <= 2019:
+              flow_5yr=np.append()
+
+flow_avg = np.mean(flow_5yr[:,3])
+print(flow_avg)
+
+# PART 3
+
+flow_daily=[]
+flow_daily = flow_avg * 86400    # i thought would be by 2
+print(flow_daily(0, 4))
+
+print(np.sum(flow_daily))
 
 
+# PART 4
+
+flow_monthly = # [][year month flow]     12 x 5 is 60 rows
+flow_month = np.zeros(60, 3)
+flow_monthly[:, 0] = np.tile(np.arange(2015, 2019, 1),5)
+
+
+####        QUESTION:
+                # HOW DO I GET VARIABLES TO HAVE THE YEAR MONTH FLOW NAMES
 
 
 
 #%%
 
-if flow_data[:3] >= 2015 & flow_data[:3] <= 2019:
-    test[:,3] * 86400
+
+#       FROM CLASS
+
+#if flow_data[:3] >= 2015 & flow_data[:3] <= 2019:
+ #   test[:,3] * 86400
 
 #flow = []
 #for i in range(len(test[:,1]):
