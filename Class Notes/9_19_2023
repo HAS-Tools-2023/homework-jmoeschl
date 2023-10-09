@@ -1,0 +1,36 @@
+#%% 
+# WORKING MY CODE OF LOOPING IN HW 4
+import numpy as np
+
+# changing first for loop
+
+for i in range(len(flow_data))
+    print(i)    
+    if(flow_data[i,1])                  # does flow data of 1,1 then 2, 1 then 3, 1 and so on
+     if(flow_data[:]) < 50:
+            print(flow_data[i,0])          
+
+
+
+
+
+
+#%%
+#               CLASS EXERCISES
+# 1.)
+import numpy as np
+
+a = np.array([5, 7, 9, 8, 6, 4, 5])
+b = np.array([6, 3, 4, 8, 9, 7, 1])
+
+c = np.zeros(len(a))
+
+for i in range(len(a)):
+    c[i] = max(a[i], b[i])
+    
+print(c)
+
+
+
+
+#%%

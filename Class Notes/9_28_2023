@@ -1,0 +1,27 @@
+#%%
+#       GOING OVER HW
+
+import numpy as np
+
+np.arange(2015, 2020)
+
+np.repeat(np.arange(2015, 2020), 12)
+
+
+# list of every row in the data in the first column
+# as many rows as flow data but true false values
+picklist = (flow_data[:, 0] >= 2015) & (flow_data[:, 0] <= 2019)
+
+
+# part 4, 'ipick' making true false values of 1st column being equal to the 
+# y_temp and 2nd column being equal to m_temp
+
+# so when it is true, pull those true values out
+flow_monthly[m, 2] = np.mean(flow_data[ipick. 3])
+
+print('step', m, 'year=', y_temp, 'month=', m_temp, 'flow', flow_monthly[m,2])
+
+#%%
+#           PANDAS DATAFRAMES
+
+import pandas as pd  

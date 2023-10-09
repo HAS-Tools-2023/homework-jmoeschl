@@ -12,6 +12,7 @@ filepath = os.path.join(filename)
 print(os.getcwd())
 print(filepath)
 
+#%%
 
 data=pd.read_table(filepath, sep = '\t', skiprows=31,
         names=['agency_cd', 'site_no', 'datetime', 'flow', 'code']
@@ -33,29 +34,53 @@ del(data)
 #%% 
 #           MY FINAL TRY
 
+picklist = (flow_data[:,0] >= 2015) & (flow_data[:,0] <= 2019)
+flow_5yr = flow_data[picklist, :]
+
+#%%
+
 # PART 2
-flow_5yr=[]
-for skipper in flow_data[:,0]:
-        if flow_data[:,0] >= 2015 & flow_data[:,0] <= 2019:
-              flow_5yr=np.append()
+flow_test=np.zeros((1826, 4))
+i=0
+j=0
+for skipper in flow_data[:,0]:          #skipper becomes flow_data year
+        if (skipper >= 2015) & (skipper <= 2019):
+              flow_test[i,:]=flow_data[j,:]
+              i = i+1
+        j=j+1
+
 
 flow_avg = np.mean(flow_5yr[:,3])
 print(flow_avg)
 
-# PART 3
 
-flow_daily=[]
-flow_daily = flow_avg * 86400    # i thought would be by 2
-print(flow_daily(0, 4))
+#%% PART 3
+
+flow_daily = flow_5yr[:, 3] * 86400    
+print(flow_daily[0: 4])
 
 print(np.sum(flow_daily))
 
 
-# PART 4
+#%% PART 4
 
-flow_monthly = # [][year month flow]     12 x 5 is 60 rows
-flow_month = np.zeros(60, 3)
-flow_monthly[:, 0] = np.tile(np.arange(2015, 2019, 1),5)
+flow_month = np.zeros((60, 3))
+year = np.repeat(np.arange(2015, 2020), 12)
+month = np.tile(np.arange(1, 13), 5)
+
+flow_month[:, 0]=year
+flow_month[:, 1]=month
+
+for i in range(60):         # i is going 0 to 59
+       y_temp = flow_month[i, 0]
+       m_temp = flow_month[i, 1]
+       picklist = (flow_5yr[:,0] == y_temp) & (flow_5yr[:,1] == m_temp)
+       flow_month[i, 2] = np.mean(flow_5yr[picklist, 3])            #picklist is rows
+# can do a list of true falses and hold the trues
+       
+       print(i, y_temp, m_temp, flow_month[i, 2])
+
+#flow_monthly[:, 0] = np.tile(np.arange(2015, 2019, 1),5)
 
 
 ####        QUESTION:

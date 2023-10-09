@@ -1,3 +1,4 @@
+ 
 #%%
 
 import os
@@ -62,6 +63,26 @@ print('Method one flow quantiles:', flow_quants1)
 flow_quants2 = np.nanquantile(flow_data, q=[0,0.1, 0.5, 0.9], axis=0)
 # and then just printing out the values for the flow column
 print('Method two flow quantiles:', flow_quants2[:,3])
+
+
+#%%
+#for month in flow_data[:,1] == 9:
+ #   for flow in flow_data[:,0] < 50:
+  #      print(flow_data)
+
+
+#%%
+#while  flow_data[:,1] == 9:
+ #   if flow_data[:,0] < 50:
+  #      print(flow, date)
+
+# %%
+
+for i in range(len(flow_data[:,1])):             
+    if (flow_data[i,1]) == 9:
+        if(flow_data[i,3]) < 200:
+            print(flow_data[i,3])       
+
 
 
 

@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 # %%
 # ** MODIFY **
 # Set the file name and path to where you have stored the data
-filename = 'streamflow_week1.txt'
-filepath = os.path.join('data', filename)
+filename = 'streamflow_week2.txt'
+filepath = os.path.join(filename)
 print(os.getcwd())
 print(filepath)
 
@@ -24,7 +24,7 @@ print(filepath)
 import pandas as pd
 
 #Read the data into a pandas dataframe
-data=pd.read_table(filepath, sep = '\t', skiprows=30,
+data=pd.read_table(filepath, sep = '\t', skiprows=31,
         names=['agency_cd', 'site_no', 'datetime', 'flow', 'code']
         )
 
@@ -51,14 +51,15 @@ flow_count = np.sum((flow_data[:,3] > 600) & (flow_data[:,1]==7))
 
 criteria = (flow_data[:, 3] > 600) & (flow_data[:, 1] == 7)
 pick_data = flow_data[criteria, 3]
-flow_mean = np.mean(pick_data)
+flow_mean = np.nanmean(pick_data)
 
 # Calculate the average flow for these same criteria 
 
-flow_mean = np.mean(flow_data[(flow_data[:,3] > 600) & (flow_data[:,1]==7),3])
+flow_mean = np.nanmean(flow_data[(flow_data[:,3] > 600) & (flow_data[:,1]==7),3])
 
 print("Flow meets this critera", flow_count, " times")
 print('And has an average value of', flow_mean, "when this is true")
+
 
 # Make a histogram of data
 # Use the linspace  funciton to create a set  of evenly spaced bins
@@ -74,11 +75,11 @@ plt.ylabel('Count')
 # Get the quantiles of flow
 # Two different approaches ---  you should get the same answer
 # just using the flow column
-flow_quants1 = np.quantile(flow_data[:,3], q=[0,0.1, 0.5, 0.9])
+flow_quants1 = np.nanquantile(flow_data[:,3], q=[0,0.1, 0.5, 0.9])
 print('Method one flow quantiles:', flow_quants1)
 # Or computing on a colum by column basis 
-flow_quants2 = np.quantile(flow_data, q=[0,0.1, 0.5, 0.9], axis=0)
+flow_quants2 = np.nanquantile(flow_data, q=[0,0.1, 0.5, 0.9], axis=0)
 # and then just printing out the values for the flow column
 print('Method two flow quantiles:', flow_quants2[:,3])
 
-# %%
+ #%%

@@ -1,0 +1,108 @@
+#%%
+
+#  Numpy Array: only numbers
+#       No row/ column names
+#       to index... [rstart: rstop, cstart: cstop]
+#       can be more than 2 dimensional deep
+#  Pandas Dataframe: anything (strigns and floats)
+#       to index... (iloc) for indexing and for name (loc)
+#       mainly 2D
+
+
+# if mydata = np.zeros((2,2))
+#   function        library.function(argument, argument)
+#           ie. np.mean(mydata)
+#   method          object.method(argument, argument)
+#           ie. mydata.info()
+#   index           square brackets
+#           ie. mydata.loc[]
+
+
+
+#%%
+
+import pandas as pd
+import numpy as np
+
+data = pd.read_table('streamfkow_week2.txt', sep='\t', skiprows=31)
+
+#%%
+
+#       HEAD AND TAIL.... start and end of data frame
+
+#view first 5 rows
+print(data.head())
+# last 5
+print(data.head())
+
+#datetime is index of data frame
+
+#%%
+
+# full row using loc
+print(data.loc["1989-01-03"])
+
+# select all rows meeting criteria
+data.loc[data['code'] == 'A']
+
+
+#%%
+
+# ability to group and aggregate data
+
+monthly_sum = data.groupby('month').agg('sum')            #method, argument, column   
+print(monthly_sum)
+
+
+#%%
+import pandas as pd
+import numpy as np
+# %%
+#       ASSIGNMENT
+
+data = np.ones((7,3))
+data_frame = pd.DataFrame(data,
+                          columns=['data1', 'data2', 'data3'],
+                          index=['a', 'b', 'c', 'd', 'e', 'f', 'g'])
+
+
+
+#%%
+#change the values for all the vowel rows to 3
+data_frame.loc[['a', 'e']] = 3
+print(data_frame)
+
+
+#%%
+#multiply first 4 rows by7
+
+print(data_frame.head(4)*7)
+
+# or data_frame.iloc[:4,} = data_frame.iloc[:4, ] * 7]
+# or data_frame.loc[['a', 'b', 'c', 'c']] * 7
+
+
+#%%
+#make the dataframe into a checkerboard of 0's and 1's using loc
+
+data = np.ones((7, 3))
+new_df = pd.DataFrame(data,
+                          columns=['data1', 'data2', 'data3'],
+                          index=['a', 'b', 'c', 'd', 'e', 'f', 'g'])
+
+new_df.iloc[0:8:2, 0:3:2] = 0
+new_df.iloc[1:8:2, 1:3:2] = 0
+
+print(new_df)
+
+
+#       OR
+new_df.loc[['a', 'c', 'e', 'g'], ['data1', 'data3']] = 0
+new_df.loc[['b', 'd', 'f'], ['data2']] = 0
+
+
+
+
+#%%
+#iloc
+# %%

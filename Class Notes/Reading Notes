@@ -1,0 +1,169 @@
+#%%
+        ## NUMPY
+# all elements in array must be the same data type
+# must be defined as "arry_name = numpy.array([])"
+
+# Numpy arrays support arithmetic and math operations that run on each element 
+            # of the array
+
+# Numpy array is not editting via adding/removing elements in array
+            #each time array is manipulated, its deleted and recreated
+
+# Numpy array can store data along multiple dimensions
+import numpy as np 
+avg_monthly_precip = np.array([0.70, 0.75, 1.85])
+print(avg_monthly_precip)
+            # output comes in "[]"
+
+#%% 
+
+import os
+
+# use '\\' to separate files
+os.path.join()          # creates a path in the format of operating system
+    # EXAMPLE: os.path.join("earth-analytics", "data")
+        # -> creates a path to data subdirectory within earth-analytics directory 
+os.path.exists()        # returns a boolean value if path exists or not
+
+# Make sure to set working directory to be the starting point fro relative paths
+os.getcwd()                # shows your current working directory
+os.chdir("path-to-dir")    # allows you to change working directory
+
+#%%
+
+import earthpy as io
+
+et.io.HOME                 # gives a apth that is the home directory path on your computer
+os.path.exists(et.io.HOME)
+
+os.path.join(et.io.HOME, "earth-analytics") # creates path to home/earth-analytics
+
+
+#%%
+        ## BROKEN INTO STEPS
+# 1. Check current working directory
+os.getcwd()
+
+# 2. Find the path to home directory
+et.io.HOME
+
+# 3. Change the directory to that path
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+
+#%%
+        ## IMPORT PACKAGES
+# import matplotlib as mpl          ... plot data
+# import matplotlib.pyplot as plt   ... idk
+# import numpy as np                ... data in arrays
+# import pandas as pd               ... idk
+# import earthpy as et              ... download data files
+
+
+
+#%% 
+# first import data file
+# import average monthly precip to numpy array
+fname = os.path.join("data", "earthpy-downloads", "avg-monthly-precip.txt")
+avg_monthly_precip = np.loadtxt(fname)
+
+# import monthly precip for 2002 and 2013 to numpy array
+fname = os.path.join("data", "earthpy-downloads", "monthly-precip-2002-2013.csv")
+precip_2002_2013 = np.loadtxt(fname, delimiter = ',')
+
+# to check dimensions and shape
+avg_monthly_precip.ndim # number of dinesions
+precip_2002_2013.shape  # if 1D array, shows # of elements, otherwise rows, columns
+
+# operations
+avg_monthly_precip *= 25.4
+print(avg_monthly_precip)
+
+# stats
+mean_avg_precip = np.mean(avg_monthly_precip)
+        # can do medians too
+# can skip calc and just print and cal in one step
+print("minimum average monthly precip:", np.min(avg_monthly_precip))
+
+#       STATS OVER 2D ARRAY
+# vertical axis = 0, horizontal axis = 1
+    # axis = 0 requests stat of each column across all rows of data
+    # EX: axis = 0 on a [2, 12] results in an output of 12 values
+
+np.max(avg_monthly_precip, axis=0)       # requests max value from each column across all rows
+
+
+#%%
+            ## SLICE
+# to get an element 2 rows and 3 columns... 
+precip_2002_2013[1, 2]
+
+import os 
+import earthpy as et
+# download .txt and .csv files
+monthly_precip_url = 'https://ndownloader.figshare.com/files/12565616'
+et.data.get_data(url=monthly_precip_url)
+# set working directory to earth-analytics
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+# import average monthly precip
+fname = os.path.join("data", "earthpy-downloads", "avg-monthly-precip.txt")
+avg_monthly_precip = np.loadtxt(fname)
+fname = os.path.join("data", "earthpy-downloads", "monthly_precip.csv")
+precip = np.loadtxt(fname, delimiter=",")
+
+
+# can check shape of 1D 
+avg_monthly_precip.shape
+# to get elements 2 thru 5 (first inclusive second is not)
+print(avg_monthly_precip[2:5])
+
+# can do [start_row_index:end_row_index, start_column_index:end_column_index]
+print(precip[0:1, 0:2])
+
+# selct first row
+print(precip[:, 0])
+
+# select first column
+print(precip[0, :])
+
+# select first two rows, first two columns
+print(precip[:2, :2])
+
+precip[:2, :2].shape    # output (2, 2)
+
+
+#%%
+#               NUMPY
+x.ndim
+x.shape
+x.size
+x.dtype
+
+x[0, 0] = 12            # makes the upper left element equal to 12
+
+# to put numbers 1 thru 9 in a 3x3 grid
+grid = np.arange(1, 10).reshape(3,3)
+
+# to do something along the second axis
+axis=1
+
+np.sum()
+np.max()
+np.min()
+np.ones()
+
+# count how many values less than ^?
+np.count_nonzero(x < 6)
+
+# how many values less than 6 in each row?
+np.sum(x < 6, axis=1)
+
+# are there any values greater than 8?
+np.any(x > 8)
+
+# are all values less than 10?
+np.all(x < 10)
+
+# are all values in each row less than 8?
+np.all(x < 8, axis=1)           # output example:
+                        #       True, False, True
