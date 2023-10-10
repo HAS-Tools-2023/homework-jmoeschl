@@ -2,6 +2,12 @@
 ### 10/8/2023
 ### Homework 6
 
+###
+2/3: Good work I subtracted one since you were missing 5 and didn't get 4 right. 
+- Note for number 4 I was looking for the hightes and lowest values not the first and last so you needed to do a sort before doing the head/tail operation. 
+- No worries on the plotting we are going to work on plotting this week :) 
+- I have posted a solution for this weeks homework please check it out and come by my office hours if anything is still unclear. 
+
 ### Forcast Selection
 
 I chose this weeks values to be in the 70's (78 and 72) as flow has been abnormally low and I am not confident that after the next day or two there will be more rain. 
