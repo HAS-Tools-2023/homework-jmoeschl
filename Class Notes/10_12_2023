@@ -1,0 +1,72 @@
+# %%
+
+#when use fig,ax approach can refer to different parts of plots explicitly
+#plt. approach everything needs to be in order
+
+
+# %%
+
+# TO MAKE TWO PLOTS
+
+fig,ax = plt.subplots(2,1)  #fig is name of collage, ax for each pic in collage
+# fig is piece of paper, ax is little plots on it
+# will never refer to fig
+# 2 rows and 1 column
+
+# to alter second one, ax[1].plot, first is ax[0].plot
+
+# to make a sine function:
+x = np.linspace(-5 * np.pi, 5 * np.pi, 1000)
+ax[0].plot(x,np.sin(x))
+ax.[1].plot(x, np.cos(x))
+
+#%%
+# ANOTHER WAY TO DO IT
+
+plt.figure()
+plt.subplot(2, 1, 1)
+plt.plt(x,np.sin(x))
+
+plt.subplot(2, 1, 2)
+
+#%%
+
+# to make a 2 by 2 and a matrix
+
+fig,ax = plt.subplots(2, 2)
+
+ax = ax.flatten()       # puts them all in a row so can refer to them as 0 1 2 3
+
+ax[0].plot(x, np.sin(x))
+ax[1].plot(x, np.cos(x))
+ax[2].plot
+ax[3].plot
+
+
+#%%
+
+#instead of flattenings could keep in 2 by 2
+# then refer as:
+
+ax[0,0]
+ax[0,1]
+ax[1,0]
+ax[1,1].plot(x, np.sin(x))
+
+
+#%%
+
+# name all axes
+fig, [[ax1, ax2], ax3, ax4]] = plt.subplots(2,2)
+ax1.plot()
+ax2.plot()
+ax3.plot()
+
+#%%
+
+# to share axes
+sharex and sharey
+
+# to adjust like spaces
+hspace=0 or wspace=0    #for no space
+ right=0.8      # means want plot to end 80% of the way to the right

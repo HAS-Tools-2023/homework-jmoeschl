@@ -1,10 +1,11 @@
 #%%
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 
-mylist = ['a', 'b', 'c', 'd']
 
-print(mylist[1],mylist[0],mylist[3])
+#%% 
+x = np.linspace(8, 2, 100)
+y1=np.cos(x)
 
-      
-
-print(mylist[1]+mylist[0]+mylist[3])
 # %%

@@ -87,8 +87,35 @@ print(data_frame['flow'].quantile([0.25, 0.5, 0.75]))   # 87, 147, 207
 
 #%%
 
-print(data_frame.head(5))
-print(data_frame.tail(5))
+data.sort_values(by="flow", ascending = True)
+print(data[['datetime', 'month', 'flow']].head(5))
+print(data[['datetime', 'month', 'flow']].tail(5))
+
+
+# why not dataframe.head
+
+
+#%%
+# I DONT GET THIS PART
+
+# 5. provide a list of historical dates with flows that are within 10% of your
+# week 1 forecast value. If there are none than increase the %10 window until 
+# you have at least one other  value and repor the date and the new window you used
+forecast = 72
+window = 0.10
+
+#Filter for days that fall within this window: 
+window_days = data[(data['flow']> forecast*(1-window)) & 
+      (data['flow'] <  forecast * (1+window)) &
+      (data['month'] ==9)]
+
+window_days['datetime']
+
+#same thing on one line:
+data[(data['flow'] > forecast*(1-window)) &
+                   (data['flow'] < forecast * (1+window)) &
+                   (data['month'] == 9)]['datetime']
+
 
 
 
