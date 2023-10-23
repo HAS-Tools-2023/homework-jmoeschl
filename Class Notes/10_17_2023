@@ -1,0 +1,42 @@
+#%%
+
+COMMON ISSUES FROM HW
+
+- whether to use single or double quotes:
+    -either as long as consistent
+    -single is refering to name of something (strings)
+
+- histogram binning:
+    x = np.linspace(-5 * np.pi, 5 * np.pi, 1000)
+    -must provide series of breaks
+    -linearly spaced set of numbers from negative 5 to 5 and 1000 breaks
+    -would give 1001 bins
+
+
+#%%
+
+for my hw I could have done ax.bar(whatever.index, whatever.values) 
+    - if this made a new datafram of months w/ stuff and an unnamed flow column
+
+if it kept flow named, could do whatever.flow instead of whatevr.values
+
+to create it with [flow] only one brackets
+    -call with whatever.index, whatever.values... cause no column header
+
+
+
+for my describe issue:
+    if i did:
+        flow_by_month=data_frame.groupby(["month"])[["flow"]].describe()
+    there are several header columns so cant call [max]
+    instead could call with both column names
+        flow_by_month['flow', 'max']      or    ['flow']['max']
+
+OR could drop level to get rid of first part
+
+then could do:
+    ax.bar(flow_by_month.index, flow_by_month['max'])
+
+
+piece of paper: USE FIG.LEGEND
+for each individual plot: USE AX.LEGEND

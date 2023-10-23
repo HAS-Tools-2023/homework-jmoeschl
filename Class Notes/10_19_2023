@@ -1,0 +1,31 @@
+skiprows=30 says to skip that many at the top
+
+#%%
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# %%
+
+filename = 'streamflow_week2.txt'
+filepath = os.path.join('data', filename)
+print(os.getcwd())
+print(filepath)
+
+filepath = '../data/streamflow_week2.txt'
+
+
+# %%
+#Read the data into a pandas dataframe
+data=pd.read_table(filepath, sep = '\t', skiprows=31,
+        names=['agency_cd', 'site_no', 'datetime', 'flow', 'code']
+        )
+
+#%%     USE THIS LINE OF CODE FOR HW
+
+data2 = pd.read_table(filename, sep='\t', skiprows=31,
+                      names = ['agency_cd', 'site_no',
+                               'datetime', 'flow', 'code'],
+                               parse_dates = ['datetime'])
+# %%
