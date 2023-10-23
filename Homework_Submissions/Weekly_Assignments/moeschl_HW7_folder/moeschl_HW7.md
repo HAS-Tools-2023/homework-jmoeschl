@@ -2,7 +2,13 @@
 ### 10/16/2023
 ### Homework 7
 
-**Note... I have a pass this week but I would like to still do the reflection for my own well being and growth.  If I miss things in the write up, could I use the pass? Thanks!
+*Note... I have a pass this week but I would like to still do the reflection for my own well being and growth.  If I miss things in the write up, could I use the pass? Thanks!*
+
+### Grade
+3/3: Excellent work, your plots look great!
+- Happy you still provided this despite your pass and I appreciate your reflections. 
+- Your questions are all great and I think will be relevant for others in the class please make sure to bring them up today when we do review. 
+- "bending it into something that functioned" is a great descriptor for how a lot of this stuff works at first. And its never something you start from scratch. Even when you are experienced I usually find a relevant example and start from there. 
 
 
 ### Forcast Selection and Summary
