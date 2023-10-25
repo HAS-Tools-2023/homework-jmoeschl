@@ -2,6 +2,13 @@
 ### 10/22/2023
 ### Homework 8
 
+### Grade
+3/3: Nice work!
+- You really have made great progress here even if you feel that you are behind. 
+- Timeseries are confusing and it seems that a lot of people are still struggling with them. I will dedicate some discussion time to them tomorrow.
+- As always please feel free to come to my office hours too if that would help.  
+###
+
 ### Question 1
 
 week 1: 118.5 cfs
