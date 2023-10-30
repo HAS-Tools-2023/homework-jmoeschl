@@ -1,58 +1,49 @@
-#%%
+my problem is..... using a time series i finally got to work this week
+now my data is complicated
+it wont let me say "month == 10" anymore 
+so how do i get all of the october data out?
+it does not like me saying '2022-10-01'
 
+#%%
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-# %%
+#%%     TIME SERIES READ IN 
 
 filename = 'streamflow_week8.txt'
-filepath = os.path.join('data', filename)
-print(os.getcwd())
-print(filepath)
-
+filepath = os.path.join('data', filename)  
 filepath = '../../data/streamflow_week8.txt'
+data = pd.read_table(filepath, sep='\t', skiprows=31,
+                     names=['agency_cd, site_no',
+                            'datetime', 'flow', 'code'],
+                            parse_dates=['datetime'])
+df = data.copy()
+df = df.set_index('datetime')
+df.dropna()
 
-
-#%%
-
-data=pd.read_table(filepath, sep = '\t', skiprows=31,
-        names=['agency_cd', 'site_no', 'datetime', 'flow', 'code']
-        )
-
-data[["year", "month", "day"]] =data["datetime"].str.split("-", expand=True)
-data['year'] = data['year'].astype(int)
-data['month'] = data['month'].astype(int)
-data['day'] = data['day'].astype(int)
-
-
-#%%     TIME SERIES READ IN (NOT WORKING)
-
-#data2 = pd.read_table(filename, sep='\t', skiprows=31,
-#                      names = ['agency_cd', 'site_no',
-#                               'datetime', 'flow', 'code'],
-#                               parse_dates = ['datetime'])
-
-
-# %%
-
-data_frame = pd.DataFrame(data,
-                        columns=['flow', 'year', 'month', 'day'])
-
-data_frame.dropna()
 
 #%%     OCTOBER AND NOVEMBER DATA FRAMES
 
-october = data_frame[data["month"]  == 10]      #all of october data with day and years
+october = df[data["month"]  == 10]      #all of october data with day and years
 october_data = october.mean()                   #one average value for all of october
 
 #print(october_data)
-
-november = data_frame[data["month"] == 11]
+#%%
+november = df[(data.index >= '2022-11-01') & (data.index <= '2022-11-30')]
 november_data = november.mean()
 
-#print(november_data)
+print(november)
+
+#%%
+def monthly_max(dataframe, month, year=2019):
+    monthly_vals = dataframe[(dataframe.index.month == month) & 
+                             (dataframe.index.month == year)]
+    maxval=np.max(monthly_vals['flow'])
+    return(maxval)
+  
+monthly_max(df, 5)
 
 #%%     OCTOBER GRAPH
 
