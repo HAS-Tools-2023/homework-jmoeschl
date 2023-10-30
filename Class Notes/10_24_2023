@@ -1,0 +1,12 @@
+#%%     
+FUNCTIONS
+
+a block of code that only runs when called
+call by: "function_name(arg1, arg2, arg3)
+
+def my_function(arg1, arg2,...):
+    -----
+    -----
+    then must print or return (to get it back as a variable)
+
+to call it... "my_function()"

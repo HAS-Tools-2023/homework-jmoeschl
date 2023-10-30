@@ -1,0 +1,6 @@
+functions and methods should have a verb or verb phrase
+use pronouncable and searchable names
+replace magic numbers with ALL_CAPS named constants
+PEP 8 style guide
+use problems in python terminal
+"flake 8" 
