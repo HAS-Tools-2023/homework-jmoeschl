@@ -14,7 +14,7 @@ import os
 
 filename = 'streamflow_week8.txt'
 filepath = os.path.join('data', filename)  
-filepath = '../../data/streamflow_week8.txt'
+filepath = '../data/streamflow_week8.txt'
 data = pd.read_table(filepath, sep='\t', skiprows=31,
                      names=['agency_cd, site_no',
                             'datetime', 'flow', 'code'],
@@ -22,19 +22,26 @@ data = pd.read_table(filepath, sep='\t', skiprows=31,
 df = data.copy()
 df = df.set_index('datetime')
 df.dropna()
-
+print(df.index)
 
 #%%     OCTOBER AND NOVEMBER DATA FRAMES
 
-october = df[data["month"]  == 10]      #all of october data with day and years
-october_data = october.mean()                   #one average value for all of october
+#october = df[data["month"]  == 10]
+#       #all of october data with day and years
+
+flow_by_month=df.groupby(df.index.month)["flow"].describe()
+
+print(flow_by_month.index[9])
+
+#october = df["month"]  == 10
+#october_data = october.mean()                   #one average value for all of october
 
 #print(october_data)
 #%%
 november = df[(data.index >= '2022-11-01') & (data.index <= '2022-11-30')]
 november_data = november.mean()
 
-print(november)
+print(november)dt
 
 #%%
 def monthly_max(dataframe, month, year=2019):

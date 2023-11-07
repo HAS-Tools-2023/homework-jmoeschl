@@ -1,11 +1,29 @@
 #%%
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib.pyplot as plt
+import datetime
+
+### Define column names and read csv file 
+col_names = ['Station','Date','air_temp','dew_point_temperature_set_1','relative_humidity_set_1','wind_speed_set_1','wind_direction_set_1','dew_point_temperature_set_1d']
+
+data = pd.read_csv('Tucson data.csv', skiprows=8, parse_dates=[1], names=col_names)
 
 
-#%% 
-x = np.linspace(8, 2, 100)
-y1=np.cos(x)
+### Set index to be date column
+data = data.set_index(data['Date'])
+
+print(data)
+
+
+### Assign variables to data columns 
+
+date = data.index
+temp = data['air_temp']
+td = data['dew_point_temperature_set_1d']
+rh = data['relative_humidity_set_1']
+wind_spd = data['wind_speed_set_1']
+wind_dir = data['wind_direction_set_1']
+
 
 # %%
