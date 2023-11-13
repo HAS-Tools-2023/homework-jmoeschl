@@ -35,7 +35,7 @@ sep='\t', skiprows=31, names=['agency_cd', 'site_no',
 columns=['date', 'year', 'yday', 'dayL (s)', 'prcp (mm/day)','srad (W/m^2)', 
        'swe (kg/m^2)', 'tmax (deg c)',	
        'tmin (deg c)','vp (Pa)']
-datatwo = pd.read_csv('daymet.csv', names=columns, 
+datatwo = pd.read_csv('daymet.csv',  
                      parse_dates=['date'], index_col=['date'])
 
 #%%
@@ -71,7 +71,6 @@ ax.scatter(datatwo.index, datatwo['tmax (deg c)'],
 
 
 
-
 #%%
 #2.4 Make a plot with three lines (1) average, (2) min and (3) max shortwave radiation (srad) vs the day of the year (i.e. 1-365)
 # MY CALCS
@@ -80,10 +79,9 @@ doymin=datatwo.groupby('yday').min()
 
 #%%
 #datatwo['yday'] = pd.to_numeric(datatwo['yday'], downcast='float')
-ok = datatwo.groupby('yday')
+
 doyavg=datatwo.groupby('yday').mean()
 
-print(ok[1:'srad (W/m^2)'][1:])
 
 
 #%%
@@ -112,4 +110,22 @@ fig.set_size_inches(10, 10)
 ax.plot(datatwo['yday'], datatwo['srad (W/m^2)'],
                 color='purple')
 
-# %%
+# %%  other 2.4
+
+#2.4 Make a plot with lines for the monthly average of `tmax` for all months after Jan 2015.  Add shading to the plot extending to the monthly minimum and maximum of `tmax` for the same period.
+
+#Hint - Use the pandas resample function for datetime objects and the plt.fill type for the shading. 
+
+FROM TONG:
+
+daymet_after_2015= datatwo[datatwo.index.year >= 2015]
+daymet_after_2015_monthly = daymet_after_2015.resample('M')['srad (W/m^2)']
+srad_mean=daymet_after_2015_monthly.mean()
+srad_min=daymet_after_2015_monthly.min()
+srad_max=daymet_after_2015_monthly.max()
+ax = plt.axes()
+ax.plot(srad_mean, '-', color='blue',label='mean srad')
+ax.plot(srad_max,'--',color='orange',label='max srad')
+ax.plot(srad_min, ':', color='green',label='min srad' )
+ax.set(xlabel='month of every year after 2015', ylabel='srad value')
+ax.legend()  

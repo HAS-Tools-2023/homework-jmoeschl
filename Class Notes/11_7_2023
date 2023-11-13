@@ -1,0 +1,27 @@
+-envirmonment
+to create a new environment:
+    conda create--name hastools_mapping python=3.8
+
+then have to tell it you want to live in it 
+    conda env list
+    conda activate hastools_mapping
+
+configure our environment so that it will use conda forge for packages
+    conda config--add channels conda-forgeconda config--set channel_priority strict
+
+install packages into environment and check if installed
+    conda install ...
+    conda list
+
+-random plt
+ax = plt.axes()
+
+reason to use ax, when making subplots can refer to them easily
+
+-shape files
+    they have features.... lines, points, polygons
+
+-rasters
+
+
+-projections
