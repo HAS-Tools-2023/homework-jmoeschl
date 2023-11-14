@@ -2,6 +2,21 @@
 ### 10/29/2023
 ### Homework 9
 
+### Grade 7.75/9
+**Code Review**
+- I left comments in your code with some suggestions they all start with #LC
+- Hopefully my comments will clear up some of your confusion noted below.  
+Readability: 2.75/3 
+    - I like the way you broke up your code into sections. 
+    - Some of your variable names are a bit confusing though. Try to have variable names that more directly describe what they are calculating. 
+    - Could use some additional comments throughout to explain what is going on in more detail. Your short headings were not always enough to understand what you were doing. good. 
+Style: 2.75/3
+    - mostly good but check the linter for comments on white space 
+  - 
+Code:  2.25/3
+    - Nice work your code ran perfectly for me!
+    - I took of 0.5 because your function wasn't working I showed you in the comments how to fix it. 
+    - I took of 0.25 since you didn't have timeseries functionality working
 
 ### FORECAST GENERATION
 

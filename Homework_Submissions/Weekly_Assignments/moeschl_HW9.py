@@ -1,5 +1,4 @@
 #%%
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -17,17 +16,26 @@ filepath = '../../data/streamflow_week8.txt'
 
 #%%     READING THE FILE INTO THE SYSTEM
 
-data=pd.read_table(filepath, sep = '\t', skiprows=31,
+data = pd.read_table(filepath, sep = '\t', skiprows=31,
         names=['agency_cd', 'site_no', 'datetime', 'flow', 'code']
         )
-
+#LC - instead of doing it this way I would recommend using the datetime functionality
 data[["year", "month", "day"]] =data["datetime"].str.split("-", expand=True)
 data['year'] = data['year'].astype(int)
 data['month'] = data['month'].astype(int)
 data['day'] = data['day'].astype(int)
 
+#LC - you can read in your dataframe with dates like this: 
+data_withdates = pd.read_table(filepath, sep = '\t', skiprows=31,
+        names=['agency_cd', 'site_no', 'datetime', 'flow', 'code'], parse_dates=['datetime']
+        )
 
 # %%  CREATING MY FIRST DATAFRAME
+
+#LC you don't need to do this step its alreay a dataframe from the previous step
+
+# if you want to get out just a subset of the columns instead I would do
+data_frame = data[['flow', 'year', 'month', 'day']]
 
 data_frame = pd.DataFrame(data,
                         columns=['flow', 'year', 'month', 'day'])
@@ -37,6 +45,8 @@ data_frame.dropna()
 #%%     OCTOBER AND NOVEMBER DATA FRAMES
 
 october = data_frame[data["month"]  == 10]      #all of october data with day and years
+
+#LC- Consider your naming convention here its confusing what the difference is between october and october_data. seems like this should be named october_mean
 october_data = october.mean()                   #one average value for all of october
 
 #print(october_data)
@@ -53,9 +63,9 @@ november_data = november.mean()
 # trying to find the monthly mean, but it keeps outputting "nan" but prior I dropped all nan values
 # the same thing happened in class when we did this example and drove me crazy
 
+#LC -- see my correction below you need to check when the column month== month and year==year not when the whole dataframe is equal to it (i.e. dataframe['month']==month vs dataframe==month)
 def monthly_mean(dataframe, month, year):
-    monthly_vals = dataframe[(dataframe == month) & 
-                             (dataframe == year)]
+    monthly_vals = dataframe[(dataframe['month'] == month) & (dataframe['year'] == year)]
     meanval=np.mean(monthly_vals['flow'])
     return(meanval)
   
