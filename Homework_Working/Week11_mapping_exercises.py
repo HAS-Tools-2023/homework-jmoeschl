@@ -104,25 +104,24 @@ plt.show()
 
 #%%     PROJECTION CHANGES
 
-points_project = point_df.to_crs(gages.crs)
-HUC10_project = HUC10.to_crs(gages.crs)
-arizona_project = arizona.to_crs(gages.crs)
+gages_project = gages.to_crs(point_df.crs)
+HUC10_project = HUC10.to_crs(point_df.crs)
+arizona_project = arizona.to_crs(point_df.crs)
 
 
-#%%     ADDING TOPOGRAPHY
 #%%     TOTAL MAP 
 fig, ax = plt.subplots(figsize=(10, 10))
-HUC10_project.plot(ax=ax, color = 'deepskyblue')
+HUC10_project.plot(ax=ax, color = 'deepskyblue', alpha = 0.5)
 arizona_project.plot(ax=ax, color = 'darkgoldenrod', alpha=0.7, label='arizona')
 ax.legend(loc='upper right')
-gages.plot(ax=ax, color = 'lightgrey', marker = 'o', markersize=10, label='gages')
+gages_project.plot(ax=ax, color = 'lightgrey', marker = 'o', markersize=10, label='gages')
 ax.legend(loc='upper right')
-points_project.plot(ax=ax, color='red', marker='*', label='self defined points')
+point_df.plot(ax=ax, color='red', marker='*', label='self defined points')
 ax.legend(loc='upper right')
 ax.set_title("HUC Boundaries")
 ax.set_ylabel("Longitude")
 ax.set_xlabel("Latitude")
-ctx.add_basemap(ax, crs=gages.crs)
+ctx.add_basemap(ax, source=ctx.providers.OpenTopoMap, crs=point_df.crs)
 plt.show()
 
 

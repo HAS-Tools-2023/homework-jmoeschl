@@ -1,0 +1,20 @@
+API: protocol for how things work
+
+URL must be readable
+literally say "url = ......"
+
+url = "https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=09506000" \
+       "&referred_module=sw&period=&begin_date=1989-01-01&end_date=2020-10-16"
+
+
+can change the dates in that to change the read in data
+
+or 
+
+url = "https://waterdata.usgs.gov/nwis/dv?cb_00060=on&format=rdb&site_no=09506000&referred_module=sw&period=&begin_date=1989-01-01&end_date=2020-10-16"
+
+
+
+then.....:
+
+data = pd.read_table(url, skiprows=30, names=['agency_cd', 'site_no','datetime', 'flow', 'code'],)

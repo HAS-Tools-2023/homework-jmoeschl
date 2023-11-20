@@ -1,0 +1,35 @@
+developers.synopticdata.com/mesonet/v2/getting-started/
+
+developers.synopticdata.com/mesonet/explorer
+
+station id QVDA3
+id 1709
+
+
+apiString = urllib.parse.urlencode(args)
+print(apiString)
+
+fullUrl = base_url + '?' + apiString
+print(fullUrl)
+response = req.urlopen(fullUrl)
+ 
+responseDict = json.loads(response.read())
+
+
+
+
+- for dictionary everything left of colon is the key
+- dictionary is curly brackets {}
+- you can call keys then and get something in it
+
+responseDict['UNITS']['position']
+
+- a regular list has regular brackets and inside that can be curly bracket dictionary
+
+
+- use these to make friendly lists
+dateTime = responseDict['STATION'][0]['OBSERVATIONS']['date_time']
+airT = responseDict['STATION'][0]['OBSERVATIONS']['air_temp_set_1']
+
+my key:    d7cb3f51f3fa469c8464f3509c1e53ae
+
