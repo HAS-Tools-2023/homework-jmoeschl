@@ -2,6 +2,9 @@
 ### 11/20/2023
 ### HW 12
 
+### Grade
+3/3: Nice work.  We will review the API website again tomorrow as I know that was confusing to many. I couldn't see exactly where this plot was being generated in your code but I think the issue is because you don't have your dates as datetime objects.  
+
 ### Forecast Generation
 I really cannot think of a fun math way to think of a flow so I still used what I used in the past.  It is a ratio of mean to std of historical novemebr data and then I added on the accumulated precipitaiton from this past storm.   I am aware it is in different units but the units I chose had the most reasonable flow value.  other than that though, I just used that calcualtion as a guidance. 
 
