@@ -1,4 +1,5 @@
 #%%                                 NOTE: I do not agree with most linter issues... the space around the equations make it easier to read for me
+# LC -- okay noted thanks :) 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -11,9 +12,11 @@ import dataretrieval.nwis as nwis
 
 #%% setting the forecast date and converting it to a datetime
 forecast_date = '2023-11-30'
+#LC  Nice work using datetime 
 date1 = pd.to_datetime(forecast_date)
 
 # %%            GETTING MY FLOW DATA FROM THE USGS SITE
+
 
 def readfile(station_id, start_date, stop_date):
     """"
@@ -23,13 +26,15 @@ def readfile(station_id, start_date, stop_date):
     Returns (outputs):
     Creates a pandas dataframe from the USGS site for the stream flow data
     """
+    # LC looks like your function is missing the parts where the data is actually getting read in.  
 
 # STREAM FLOW DATA FOR THE THREE STATIONS
+# LC this doesn't work because your funciton is missing some parts. Also one suggestion here is you could have your stop date be set to the forecast date that you asked the user for above. 
 verde = readfile(station_id = '09506000', start_date = '2022-11-27', stop_date = '2023-11-26')          
 clarkdale = readfile(station_id = '09504000', start_date = '2022-11-27', stop_date = '2023-11-26')
     # ugly deserty and sunny site
 paulden = readfile(station_id = '09503700', start_date = '2022-11-27', stop_date = '2023-11-26')
-    # one of my two favorite sites on the verde
+# one of my two favorite sites on the verde
 
 #%%  Plot stream flow data    CHAT GPT FUNCTION
 def plot_stream_flow(data, forecast_date):
@@ -57,6 +62,7 @@ plot_stream_flow(verde, forecast_date)                  # plot for verde
 # I chose to use a location around the Paulden area that had a snow_accum variable.
 # I chose this because although there is none right now, this could be useful in the future
 # also I find it interesting around the Paulden area as it is the verde headwaters but spring fed so snow plays an interesting role
+# LC nice work getting this included!  You didn't have to do this but this is a nice addition to your analysis. 
 mytoken = 'd7cb3f51f3fa469c8464f3509c1e53ae'
 base_url = "http://api.mesowest.net/v2/stations/timeseries"
 args = {
@@ -90,6 +96,7 @@ plt.show()
 
 #%%     ONE OF MY FUNCTIONS (TO CALCULATE MONTHLY MEAN FLOW)
 
+# LC -- In the future you should define all of your functions in one block at the top of your code
 def monthly_mean(dataframe, year, month):
     """calculates per given month the average stream flow for the year
     Parameters (Inputs):
@@ -108,7 +115,7 @@ verde_new = monthly_mean(verde, date1.year, date1.month)
 
 
 #%%     FORECAST 
-
+# LC - a comment here explaining how you are calculating this and why would be helpful to the reader. 
 oneweek = verde_new + clarkdale_new - paulden_new
 twoweek = clarkdale_new + verde_new 
 

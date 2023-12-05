@@ -1,6 +1,9 @@
 ### Jessi Moeschl
 ### 12/3/2023
 
+### Grade
+3/3 - Great work this semester! I'm really glad there were some parts you liked and that you liked the approach of this last weeks class. Being able to piggy back of other peoples codes is a great place to be after just one semester of class on this. My advice to you is to just keep coding as much as possible and you will be amazed how quickly you progress from here. 
+
 ### Question 1
 My favorite topic was the geopandas and maps like ArcGIS.  ALthough it is probably less useful than ArcGIS, the manipulation of the frames was incredibly fun.  Most useful data was the API's and pulling straight from a website because it limited possible errors running a code due to file path errors.
 
